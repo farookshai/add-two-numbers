@@ -23,16 +23,7 @@ public class AppTest
         return root;
     }
 
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void addTwo()
-    {
-        int n1[] = {2,4,3};
-        int n2[] = {5,6,4};
-        int answer[] = {7, 0, 8};
-
+    private void executeTest(int n1[], int n2[], int answer[]){
         ListNode ln1 = buildList(n1);
         ListNode ln2 = buildList(n2);
         ListNode result = app.addTwoNumbers(ln1, ln2);
@@ -44,4 +35,48 @@ public class AppTest
             current = current.next;
         }
     }
+
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void addTwo()
+    {
+        int n1[] = {2,4,3};
+        int n2[] = {5,6,4};
+        int answer[] = {7, 0, 8};
+
+        executeTest(n1, n2, answer);
+    }
+
+    @Test
+    public void addDifferntSizeList()
+    {
+        int n1[] = {0,0,1};
+        int n2[] = {0,0,0,1};
+        int answer[] = {0,0,1,1};
+
+        executeTest(n1, n2, answer);
+    }
+
+    @Test
+    public void addDifferentSizeResult()
+    {
+        int n1[] = {0,0,1};
+        int n2[] = {0,0,9};
+        int answer[] = {0,0,0,1};
+
+        executeTest(n1, n2, answer);
+    }
+
+    @Test
+    public void addZero()
+    {
+        int n1[] = {0};
+        int n2[] = {0};
+        int answer[] = {0};
+
+        executeTest(n1, n2, answer);
+    }
+
 }
